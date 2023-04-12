@@ -6,6 +6,12 @@ public class TriggerAnimation : MonoBehaviour
 
 
 {
+    //COOLDOWN
+    public float cooldownTime = 2;
+
+    private float nextFireTime = 0;
+
+    //ANIMATION
     public AudioSource theFlash;
 
     Animator anim1;
@@ -17,10 +23,15 @@ public class TriggerAnimation : MonoBehaviour
  
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Time.time > nextFireTime)
         {
-            anim1.SetTrigger("Trigger");
-            theFlash.Play();
+            if (Input.GetMouseButtonDown(0))
+            {
+                nextFireTime = Time.time + cooldownTime;
+
+                anim1.SetTrigger("Trigger");
+                theFlash.Play();
+            }
         }
     }
         
