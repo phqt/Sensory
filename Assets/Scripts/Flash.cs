@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Flash : MonoBehaviour
 {
+
     ///////////////////////////////////////////////////
     public float flashTimelength = .2f;
     public bool doCameraFlash = false;
@@ -67,6 +68,7 @@ public class Flash : MonoBehaviour
     ///////////////////////////////////////////////////
     IEnumerator FlashCoroutine()
     {
+
         bool done = false;
 
         while (!done)
