@@ -17,4 +17,6 @@ public class ScoreManager : MonoBehaviour
         filmText.text = playerInventory.NumberOfFilm.ToString();
     }
 
+    
+
 }
