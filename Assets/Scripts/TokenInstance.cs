@@ -73,7 +73,7 @@ public class TokenInstance : MonoBehaviour
                 filmText.text = NumberOfFilm.ToString();
 
                 //playerInventory.FilmCollected();
-                //filmSound.Play();
+                filmSound.Play();
 
             }
         }
