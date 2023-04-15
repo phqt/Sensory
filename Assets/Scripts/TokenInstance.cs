@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class TokenInstance : MonoBehaviour
 {
     public AudioSource filmSound;
+    public TextMeshProUGUI filmText;
+    public int NumberOfFilm = 3;
+
+
 
     //private void Update()
     //{
@@ -62,11 +68,16 @@ public class TokenInstance : MonoBehaviour
                 ThisTrigger.SetActive(false);
                 Action = false;
 
+                NumberOfFilm++;
+
+                filmText.text = NumberOfFilm.ToString();
+
                 //playerInventory.FilmCollected();
                 //filmSound.Play();
 
             }
         }
+
 
     }
 }

@@ -14,11 +14,16 @@ public class TriggerAnimation : MonoBehaviour
     //ANIMATION
     public AudioSource theFlash;
 
+    //SCORE COUNTER
+    PlayerInventory playerInventory;
+    bool playAnim;
+
     Animator anim1;
  
     void Start()
     {
         anim1 = GetComponent<Animator>();
+        playAnim = false;
     }
  
     void Update()
@@ -31,9 +36,17 @@ public class TriggerAnimation : MonoBehaviour
 
                 anim1.SetTrigger("Trigger");
                 theFlash.Play();
+                playAnim = true;
             }
         }
+
+        //if (playAnim = true)
+        //{
+        //    playerInventory.GetComponent<PlayerInventory>();
+        //
+        //    playerInventory.FilmCollected();
+        //}
     }
-        
+     
     
 }
