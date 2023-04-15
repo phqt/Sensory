@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TriggerAnimation : MonoBehaviour
 
@@ -13,20 +14,26 @@ public class TriggerAnimation : MonoBehaviour
 
     //ANIMATION
     public AudioSource theFlash;
-
+    bool playAnim;
+    Animator anim1;
+    
     //SCORE COUNTER
     PlayerInventory playerInventory;
-    bool playAnim;
 
-    Animator anim1;
+    public int currentScore;
+    public TextMeshProUGUI displayScore;
+    
+    
  
-    void Start()
+    public void Start()
     {
         anim1 = GetComponent<Animator>();
         playAnim = false;
+        currentScore = 3;
+        
     }
  
-    void Update()
+    public void Update()
     {
         if (Time.time > nextFireTime)
         {
@@ -37,8 +44,21 @@ public class TriggerAnimation : MonoBehaviour
                 anim1.SetTrigger("Trigger");
                 theFlash.Play();
                 playAnim = true;
+                currentScore--;
             }
+            else
+            {
+                displayScore.text = currentScore.ToString();
+            }
+            //if (currentScore == 0) 
+            //{
+                //currentScore = 0;
+                //playAnim = false;
+            //}   
+            
+            
         }
+    }
 
         //if (playAnim = true)
         //{
@@ -46,7 +66,8 @@ public class TriggerAnimation : MonoBehaviour
         //
         //    playerInventory.FilmCollected();
         //}
-    }
+        
+}
      
     
-}
+

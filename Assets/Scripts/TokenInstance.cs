@@ -7,8 +7,8 @@ using TMPro;
 public class TokenInstance : MonoBehaviour
 {
     public AudioSource filmSound;
-    public TextMeshProUGUI filmText;
-    public int NumberOfFilm = 3;
+    public TextMeshProUGUI displayScore;
+    public int currentScore;
 
 
 
@@ -28,14 +28,16 @@ public class TokenInstance : MonoBehaviour
     public GameObject ThisTrigger;
     public GameObject ObjectOnGround;
     //public GameObject ObjectOnHand;
-    public bool Action = false;
+    //public bool Action = false;
 
     void Start()
     {
+        GetComponent<TriggerAnimation>();
         Instruction.SetActive(false);
         ThisTrigger.SetActive(true);
         ObjectOnGround.SetActive(true);
         //ObjectOnHand.SetActive(false);
+        
 
     }
 
@@ -45,39 +47,42 @@ public class TokenInstance : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Instruction.SetActive(true);
-            Action = true;
+            //Action = true;
         }
     }
 
-    void OnTriggerExit(Collider collision)
+    public void OnTriggerExit(Collider collision)
     {
         Instruction.SetActive(false);
-        Action = false;
+        //Action = false;
     }
 
 
-    void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Action == true)
-            {
-                Instruction.SetActive(false);
-                ObjectOnGround.SetActive(false);
-                //ObjectOnHand.SetActive(true);
-                ThisTrigger.SetActive(false);
-                Action = false;
+            //if (Action == true)
+            //{
+            currentScore++;
+            Instruction.SetActive(false);
+            ObjectOnGround.SetActive(false);
+            //ObjectOnHand.SetActive(true);
+            ThisTrigger.SetActive(false);
+            //Action = false;
 
-                NumberOfFilm++;
+                
 
-                filmText.text = NumberOfFilm.ToString();
+            //playerInventory.FilmCollected();
+            filmSound.Play();
 
-                //playerInventory.FilmCollected();
-                filmSound.Play();
-
-            }
         }
-
-
+        else
+        {
+            displayScore.text = currentScore.ToString();      
+        }
     }
+
+
 }
+
