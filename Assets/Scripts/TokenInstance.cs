@@ -12,7 +12,7 @@ public class TokenInstance : MonoBehaviour
 
     bool interactCooldown;
 
-    //public PlayerFilmPickup player;
+    public PlayerPickup player;
 
     //private void Update()
     //{
