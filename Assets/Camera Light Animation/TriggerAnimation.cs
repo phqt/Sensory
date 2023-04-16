@@ -14,6 +14,7 @@ public class TriggerAnimation : MonoBehaviour
 
     //ANIMATION
     public AudioSource theFlash;
+    public AudioSource earRing;
     bool playAnim;
     Animator anim1;
     
@@ -43,6 +44,7 @@ public class TriggerAnimation : MonoBehaviour
 
                 anim1.SetTrigger("Trigger");
                 theFlash.Play();
+                earRing.Play();
                 playAnim = true;
                 //currentScore--;
             }
