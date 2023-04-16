@@ -20,7 +20,7 @@ public class TriggerAnimation : MonoBehaviour
     //SCORE COUNTER
     PlayerInventory playerInventory;
 
-    public int currentScore;
+    //public int currentScore;
     public TextMeshProUGUI displayScore;
     
     
@@ -29,7 +29,7 @@ public class TriggerAnimation : MonoBehaviour
     {
         anim1 = GetComponent<Animator>();
         playAnim = false;
-        currentScore = 3;
+        //currentScore = 3;
         
     }
  
@@ -44,11 +44,11 @@ public class TriggerAnimation : MonoBehaviour
                 anim1.SetTrigger("Trigger");
                 theFlash.Play();
                 playAnim = true;
-                currentScore--;
+                //currentScore--;
             }
             else
             {
-                displayScore.text = currentScore.ToString();
+                //displayScore.text = currentScore.ToString();
             }
             //if (currentScore == 0) 
             //{

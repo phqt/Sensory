@@ -8098,11 +8098,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filmSound: {fileID: 2090303898}
-  displayScore: {fileID: 998796782}
-  currentScore: 3
+  filmText: {fileID: 998796782}
+  NumberOfFilm: 0
   Instruction: {fileID: 1366505097}
   ThisTrigger: {fileID: 286045067}
   ObjectOnGround: {fileID: 505517539}
+  Action: 0
 --- !u!65 &286045070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8900,11 +8901,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   filmSound: {fileID: 2090303898}
-  displayScore: {fileID: 998796782}
-  currentScore: 3
+  filmText: {fileID: 998796782}
+  NumberOfFilm: 0
   Instruction: {fileID: 1366505097}
   ThisTrigger: {fileID: 316190508}
   ObjectOnGround: {fileID: 2127840455}
+  Action: 0
 --- !u!1 &318853229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4327691151390139961, guid: b127978bb8b2b4921b2a6c4c3b85ad6a, type: 3}
@@ -30514,9 +30516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3
-
-'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7774061ee77a0ef4696ae06361c811c3, type: 2}
   m_sharedMaterial: {fileID: -7732742208439398976, guid: 7774061ee77a0ef4696ae06361c811c3, type: 2}
@@ -75455,7 +75455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 5
   theFlash: {fileID: 367880863}
-  currentScore: 3
   displayScore: {fileID: 998796782}
 --- !u!1 &2088630285
 GameObject:

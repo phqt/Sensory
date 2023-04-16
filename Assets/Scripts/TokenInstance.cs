@@ -7,10 +7,12 @@ using TMPro;
 public class TokenInstance : MonoBehaviour
 {
     public AudioSource filmSound;
-    public TextMeshProUGUI displayScore;
-    public int currentScore;
+    public TextMeshProUGUI filmText;
+    public int NumberOfFilm = 0;
 
+    bool interactCooldown;
 
+    //public PlayerFilmPickup player;
 
     //private void Update()
     //{
@@ -28,16 +30,16 @@ public class TokenInstance : MonoBehaviour
     public GameObject ThisTrigger;
     public GameObject ObjectOnGround;
     //public GameObject ObjectOnHand;
-    //public bool Action = false;
+    public bool Action = false;
 
     void Start()
     {
-        GetComponent<TriggerAnimation>();
         Instruction.SetActive(false);
         ThisTrigger.SetActive(true);
         ObjectOnGround.SetActive(true);
         //ObjectOnHand.SetActive(false);
-        
+
+        interactCooldown = true;
 
     }
 
@@ -47,14 +49,15 @@ public class TokenInstance : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             Instruction.SetActive(true);
-            //Action = true;
+            Action = true;
         }
     }
 
-    public void OnTriggerExit(Collider collision)
+    void OnTriggerExit(Collider collision)
     {
         Instruction.SetActive(false);
-        //Action = false;
+        Action = false;
+        ThisTrigger.SetActive(false);
     }
 
 
@@ -62,27 +65,27 @@ public class TokenInstance : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            //if (Action == true)
-            //{
-            currentScore++;
-            Instruction.SetActive(false);
-            ObjectOnGround.SetActive(false);
-            //ObjectOnHand.SetActive(true);
-            ThisTrigger.SetActive(false);
-            //Action = false;
+            if (Action && interactCooldown == true)
+            {
+                Instruction.SetActive(false);
+                ObjectOnGround.SetActive(false);
+                //ObjectOnHand.SetActive(true);
+                //ThisTrigger.SetActive(false);
+                Action = false;
 
-                
+                NumberOfFilm++;
 
-            //playerInventory.FilmCollected();
-            filmSound.Play();
+                filmText.text = NumberOfFilm.ToString();
 
+                //interactCooldown = false;
+                //Invoke("interactCooldown", 2.0f);
+
+                //playerInventory.FilmCollected();
+                filmSound.Play();
+
+            }
         }
-        else
-        {
-            displayScore.text = currentScore.ToString();      
-        }
+
+
     }
-
-
 }
-
