@@ -17,6 +17,8 @@ public class AmmoBox : MonoBehaviour
     public bool Action = false;
 
     private bool hasInteracted = false;
+    public Collider ammoCollider;
+    private bool isInRange = false;
 
     void Start()
     {
@@ -54,10 +56,10 @@ public class AmmoBox : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ObjectOnGround.SetActive(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    ObjectOnGround.SetActive(false);
+        //}
 
         //if (Input.GetKeyDown(KeyCode.E) && !hasInteracted)
         //{
@@ -67,5 +69,20 @@ public class AmmoBox : MonoBehaviour
         //        hasInteracted = true;
         //    }
         //}
+            if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E))
+            {
+                // check if the player is within the ammo box collider
+                if (ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
+                {
+
+                    // disable the collider to prevent getting more ammo and make the ammo box invisible
+                    ammoCollider.enabled = false;
+                    GetComponent<Renderer>().enabled = false;
+
+                    // set flag to track interaction with this ammo box
+                    hasInteracted = true;
+                }
+            }
+
+        }
     }
-}
