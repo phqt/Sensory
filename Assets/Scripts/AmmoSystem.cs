@@ -15,6 +15,7 @@ public class AmmoSystem : MonoBehaviour
     public int startingAmmo = 10; // The starting amount of ammo the player has
     public float interactDistance = 2f; // The distance at which the player can interact with the ammo box
     public KeyCode interactKey = KeyCode.E; // The key the player needs to hold to interact with the ammo box
+    public AudioSource filmSound;
 
     public TextMeshProUGUI ammoText; // The UI text that displays the player's ammo count
 
@@ -35,6 +36,7 @@ public class AmmoSystem : MonoBehaviour
         if (Input.GetKeyDown(interactKey))
         {
             Instruction.SetActive(false);
+            filmSound.Play();
             //ObjectOnGround.SetActive(false);
 
 

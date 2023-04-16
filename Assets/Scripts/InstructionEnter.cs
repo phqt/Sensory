@@ -38,6 +38,7 @@ public class InstructionEnter : MonoBehaviour
         //ThisTrigger.SetActive(false);
         this.GetComponent<BoxCollider>().enabled = true;
         this.thisTrigger.SetActive(true);
+        Action = false;
     }
 
     void update()
