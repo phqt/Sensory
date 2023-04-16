@@ -5,7 +5,8 @@ using TMPro;
 
 public class AmmoBox : MonoBehaviour
 {
-    public int ammoAmount = 10; // The amount of ammo the box contains
+    public int ammoAmount = 1; // The amount of ammo the box contains
+    public int ammoCount;
 
     private bool collected = false; // Whether the box has already been collected
 
@@ -79,8 +80,10 @@ public class AmmoBox : MonoBehaviour
                     ammoCollider.enabled = false;
                     GetComponent<Renderer>().enabled = false;
 
-                    // set flag to track interaction with this ammo box
-                    hasInteracted = true;
+                    ammoCount ++ ;
+
+                // set flag to track interaction with this ammo box
+                hasInteracted = true;
                 }
             }
 
