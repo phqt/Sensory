@@ -42,7 +42,7 @@ public class AmmoBox : MonoBehaviour
     {
         Instruction.SetActive(false);
         Action = false;
-        ThisTrigger.SetActive(false);
+        //ThisTrigger.SetActive(false);
     }
 
     public void CollectAmmo(AmmoSystem ammoSystem)
@@ -51,7 +51,7 @@ public class AmmoBox : MonoBehaviour
         {
             ammoSystem.AddAmmo(ammoAmount);
             collected = true;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 
@@ -70,30 +70,35 @@ public class AmmoBox : MonoBehaviour
         //        hasInteracted = true;
         //    }
         //}
-            if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E))
+        if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E) && Action == true)
+        {
+
+            // check if the player is within the ammo box collider
+            if (ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
             {
 
-                 // check if the player is within the ammo box collider
-                if (ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
-                {
-                    
-                    // disable the collider to prevent getting more ammo and make the ammo box invisible
-                    ammoCollider.enabled = false;
-                    GetComponent<Renderer>().enabled = false;
+                // disable the collider to prevent getting more ammo and make the ammo box invisible
+                //ammoCollider.enabled = false;
+                //GetComponent<Renderer>().enabled = false;
 
-                    ammoCount ++ ;
+                ammoCount++;
 
-                     // set flag to track interaction with this ammo box
-                      hasInteracted = true;
+                // set flag to track interaction with this ammo box
+                hasInteracted = true;
 
-                }
+            }
+
+            else
+            {
+                ObjectOnGround.SetActive(true);
             }
 
             if (Input.GetKeyDown(KeyCode.E) && Action == true)
-        {
-            filmSound.Play();
+            {
+                filmSound.Play();
+
+            }
 
         }
-
     }
-    }
+}
