@@ -72,20 +72,28 @@ public class AmmoBox : MonoBehaviour
         //}
             if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E))
             {
-                // check if the player is within the ammo box collider
+
+                 // check if the player is within the ammo box collider
                 if (ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
                 {
-
+                    
                     // disable the collider to prevent getting more ammo and make the ammo box invisible
                     ammoCollider.enabled = false;
                     GetComponent<Renderer>().enabled = false;
 
                     ammoCount ++ ;
 
-                // set flag to track interaction with this ammo box
-                hasInteracted = true;
+                     // set flag to track interaction with this ammo box
+                      hasInteracted = true;
+
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.E) && Action == true)
+        {
+            filmSound.Play();
+
         }
+
+    }
     }
