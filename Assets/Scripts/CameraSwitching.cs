@@ -45,7 +45,7 @@ public class CameraSwitching: MonoBehaviour
         }
 
         // Get the NumberOfFilm variable from the other script
-        int ammoCount = GameObject.Find("Triggerpickup2").GetComponent<AmmoBox>().ammoCount;
-        boxesCollected = ammoCount;
+        //int ammoCount = GameObject.Find("Triggerpickup2").GetComponent<AmmoBox>().ammoCount;
+        //boxesCollected = ammoCount;
     }
 }

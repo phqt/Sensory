@@ -5,8 +5,7 @@ using TMPro;
 
 public class AmmoBox : MonoBehaviour
 {
-    public int ammoAmount = 1; // The amount of ammo the box contains
-    public int ammoCount;
+    public int ammoAmount = 10; // The amount of ammo the box contains
 
     private bool collected = false; // Whether the box has already been collected
 
@@ -42,7 +41,7 @@ public class AmmoBox : MonoBehaviour
     {
         Instruction.SetActive(false);
         Action = false;
-        //ThisTrigger.SetActive(false);
+        ThisTrigger.SetActive(false);
     }
 
     public void CollectAmmo(AmmoSystem ammoSystem)
@@ -51,7 +50,7 @@ public class AmmoBox : MonoBehaviour
         {
             ammoSystem.AddAmmo(ammoAmount);
             collected = true;
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
@@ -70,35 +69,27 @@ public class AmmoBox : MonoBehaviour
         //        hasInteracted = true;
         //    }
         //}
-        if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E) && Action == true)
+        if (isInRange && !hasInteracted && Input.GetKeyDown(KeyCode.E))
         {
-
             // check if the player is within the ammo box collider
             if (ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
             {
 
                 // disable the collider to prevent getting more ammo and make the ammo box invisible
-                //ammoCollider.enabled = false;
-                //GetComponent<Renderer>().enabled = false;
-
-                ammoCount++;
+                ammoCollider.enabled = false;
+                GetComponent<Renderer>().enabled = false;
 
                 // set flag to track interaction with this ammo box
                 hasInteracted = true;
-
             }
-
-            else
-            {
-                ObjectOnGround.SetActive(true);
-            }
-
-            if (Input.GetKeyDown(KeyCode.E) && Action == true)
-            {
-                filmSound.Play();
-
-            }
-
         }
+        //if (!Input.GetKeyDown(KeyCode.E) && ammoCollider.bounds.Intersects(GetComponent<Collider>().bounds))
+        //{
+        //    ammoCollider.enabled = true;
+        //    GetComponent<Renderer>().enabled = false;
+        //    hasInteracted = false;
+        //    ObjectOnGround.SetActive(true);
+        //}
+
     }
 }
