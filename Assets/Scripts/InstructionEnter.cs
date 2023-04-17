@@ -35,6 +35,7 @@ public class InstructionEnter : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         inRange = false;
+        gameObject.SetActive(true);
         //thisTrigger.SetActive(true);
         //Instruction.SetActive(false);
     }
@@ -67,7 +68,7 @@ public class InstructionEnter : MonoBehaviour
             this.GetComponent<BoxCollider>().enabled = false;
             ammoSystem.AddAmmo(ammoAmount);
             //Action = true;
-            gameObject.SetActive(false);
+            
         }
         else
         {
@@ -76,6 +77,19 @@ public class InstructionEnter : MonoBehaviour
             Action = false;
             thisTrigger.SetActive(true);
             this.GetComponent<BoxCollider>().enabled = true;
+            gameObject.SetActive(true);
+        }
+
+        if (Action == true)
+        {
+            ammoSystem.AddAmmo(ammoAmount);
+            Action = true;
+            gameObject.SetActive(false);
+        }
+
+        else
+        {
+            gameObject.SetActive(true);
         }
         
     }
