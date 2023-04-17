@@ -18,18 +18,24 @@ public class AmmoSystem : MonoBehaviour
 
     public TextMeshProUGUI ammoText; // The UI text that displays the player's ammo count
 
-    private int currentAmmo; // The current amount of ammo the player has
+    public int currentAmmo; // The current amount of ammo the player has
 
-    private void Start()
+    public int amount = 1;
+    //door Animation for ending
+    
+
+    public void Start()
     {
+        
         Instruction.SetActive(false);
         //ObjectOnGround.SetActive(true);
 
         currentAmmo = startingAmmo;
         UpdateAmmoText();
+       
     }
 
-    private void Update()
+    public void Update()
     {
 
         if (Input.GetKeyDown(interactKey))
@@ -52,7 +58,9 @@ public class AmmoSystem : MonoBehaviour
                     }
                 }
             }
+            
         }
+        
     }
 
     public void AddAmmo(int amount)

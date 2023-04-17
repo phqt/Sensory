@@ -7,7 +7,7 @@ using Collider = UnityEngine.Collider;
 
 public class InstructionEnter : MonoBehaviour
 {
-    public int ammoAmount = 10;
+    public int amount = 1;
 
     public GameObject Instruction;
     //public Collider ThisTrigger;
@@ -62,13 +62,13 @@ public class InstructionEnter : MonoBehaviour
 
             Instruction.SetActive(false);
             filmRoll.SetActive(false);
-            Action = true;
+            ammoSystem.AddAmmo(amount);
             filmSound.Play();
             thisTrigger.SetActive(false);
             this.GetComponent<BoxCollider>().enabled = false;
-            ammoSystem.AddAmmo(ammoAmount);
-            //Action = true;
             
+            //Action = true;
+            Action = true;
         }
         else
         {
@@ -82,7 +82,7 @@ public class InstructionEnter : MonoBehaviour
 
         if (Action == true)
         {
-            ammoSystem.AddAmmo(ammoAmount);
+            ammoSystem.AddAmmo(amount);
             Action = true;
             gameObject.SetActive(false);
         }
