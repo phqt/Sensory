@@ -17,6 +17,7 @@ public class InstructionEnter : MonoBehaviour
     public bool Action;
     public bool inRange;
 
+    public AmmoSystem ammoSystem;
 
     void Start()
     {
@@ -34,19 +35,19 @@ public class InstructionEnter : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         inRange = false;
-        thisTrigger.SetActive(true);
+        //thisTrigger.SetActive(true);
         //Instruction.SetActive(false);
     }
 
-    public void CollectAmmo(AmmoSystem ammoSystem)
-    {
-        if (!Action)
-        {
-            ammoSystem.AddAmmo(ammoAmount);
-            Action = true;
-            gameObject.SetActive(false);
-        }
-    }
+    //public void CollectAmmo(AmmoSystem ammoSystem)
+    //{
+    //    if (Action == true)
+    //    {
+    //        ammoSystem.AddAmmo(ammoAmount);
+    //        Action = true;
+    //        gameObject.SetActive(false);
+    //    }
+    //}
 
 
     void Update()
@@ -64,6 +65,9 @@ public class InstructionEnter : MonoBehaviour
             filmSound.Play();
             thisTrigger.SetActive(false);
             this.GetComponent<BoxCollider>().enabled = false;
+            ammoSystem.AddAmmo(ammoAmount);
+            //Action = true;
+            gameObject.SetActive(false);
         }
         else
         {
@@ -73,6 +77,7 @@ public class InstructionEnter : MonoBehaviour
             thisTrigger.SetActive(true);
             this.GetComponent<BoxCollider>().enabled = true;
         }
+        
     }
 
 }
