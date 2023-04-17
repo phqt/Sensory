@@ -8,7 +8,10 @@ public class CameraSwitch : MonoBehaviour
     private bool switchCamera = false;
     private float timer = 0f;
     private int filmsCollected = 0;
+    //Animation for door
+    
 
+    
     private void Update()
     {
         
@@ -16,6 +19,7 @@ public class CameraSwitch : MonoBehaviour
         {
             // Set the active camera to camera 1
             camera1.SetActive(true);
+            
         }
 
         // Check if the player has collected enough films

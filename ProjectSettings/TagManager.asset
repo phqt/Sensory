@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AmmoBox
   - objectpickup
+  - DoorEnd
   layers:
   - Default
   - TransparentFX

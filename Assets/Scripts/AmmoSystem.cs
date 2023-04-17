@@ -22,7 +22,8 @@ public class AmmoSystem : MonoBehaviour
 
     public int amount = 1;
     //door Animation for ending
-    
+    Animator animEnding;
+    bool playAnimEnding;
 
     public void Start()
     {
@@ -32,6 +33,9 @@ public class AmmoSystem : MonoBehaviour
 
         currentAmmo = startingAmmo;
         UpdateAmmoText();
+
+        animEnding = GameObject.FindGameObjectWithTag("DoorEnd").GetComponent<Animator>();
+        playAnimEnding = false;
        
     }
 
@@ -60,7 +64,11 @@ public class AmmoSystem : MonoBehaviour
             }
             
         }
-        
+        if(currentAmmo == 5)
+        {
+            animEnding.SetTrigger("doorOpen");
+            playAnimEnding = true;
+        }
     }
 
     public void AddAmmo(int amount)
