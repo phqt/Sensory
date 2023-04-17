@@ -64,7 +64,7 @@ public class AmmoSystem : MonoBehaviour
             }
             
         }
-        if(currentAmmo == 5)
+        if(currentAmmo == 1)
         {
             animEnding.SetTrigger("doorOpen");
             playAnimEnding = true;

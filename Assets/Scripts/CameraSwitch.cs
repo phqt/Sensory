@@ -23,7 +23,7 @@ public class CameraSwitch : MonoBehaviour
         }
 
         // Check if the player has collected enough films
-        if (filmsCollected >= 5 && !switchCamera && camera2 != null)
+        if (filmsCollected >= 1 && !switchCamera && camera2 != null)
         {
             // Set the active camera to camera 2 and start the timer
             camera1.SetActive(false);
