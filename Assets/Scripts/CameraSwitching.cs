@@ -7,7 +7,7 @@ public class CameraSwitching: MonoBehaviour
     public GameObject camera1;
     public GameObject camera2;
     public float switchDuration = 5.0f;
-    public int boxesToCollect = 3;
+    public int boxesToCollect = 5;
 
     private int boxesCollected = 0;
     private bool switching = false;
@@ -17,7 +17,7 @@ public class CameraSwitching: MonoBehaviour
     void Start()
     {
         camera1.SetActive(true);
-        camera2.SetActive(false);
+        //camera2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class CameraSwitching: MonoBehaviour
             switching = true;
             switchTimer = switchDuration;
             camera1.SetActive(false);
-            camera2.SetActive(true);
+            //camera2.SetActive(true);
         }
 
         if (switching)
@@ -39,13 +39,14 @@ public class CameraSwitching: MonoBehaviour
             {
                 switching = false;
                 camera1.SetActive(true);
-                camera2.SetActive(false);
+                //camera2.SetActive(false);
+                Destroy(camera2);
                 boxesCollected = 0;
             }
         }
 
-        // Get the NumberOfFilm variable from the other script
-        //int ammoCount = GameObject.Find("Triggerpickup2").GetComponent<AmmoBox>().ammoCount;
-        //boxesCollected = ammoCount;
+        //Get the NumberOfFilm variable from the other script
+        int ammoCount = GameObject.Find("Player").GetComponent<AmmoSystem>().currentAmmo;
+        boxesCollected = ammoCount;
     }
 }
