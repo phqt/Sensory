@@ -44,6 +44,7 @@ public class InstructionEnter : MonoBehaviour
         {
             ammoSystem.AddAmmo(ammoAmount);
             Action = true;
+            gameObject.SetActive(false);
         }
     }
 
