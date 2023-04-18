@@ -32,7 +32,7 @@ public class FireCamera : MonoBehaviour
             Shot.transform.SendMessage("DamageEnemy", DamageAmount, SendMessageOptions.DontRequireReceiver);
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4.0f);
         IsFlashing = false;
     }
 }
