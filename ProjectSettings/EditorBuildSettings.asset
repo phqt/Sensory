@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WakeUp.unity
     guid: 7a5ef88e21c9de24d8774553a4ebcafa
+  - enabled: 1
+    path: Assets/Scenes/death.unity
+    guid: 5b8f33815fa1e4339a08ec0e5517f7da
   m_configObjects: {}
