@@ -11,19 +11,27 @@ public class CollidePlayer : MonoBehaviour
     void OnTriggerEnter(Collider c){
          if(c.gameObject.name == "Player")
             Debug.Log ("Player triggered");
-        StartCoroutine(waitDeath());
-        SceneManager.LoadScene(4);
-    }
-    IEnumerator waitDeath()
-    {
-        yield return new WaitForSeconds(waitTime);
-        StartCoroutine(waitOne());
+        SceneManager.LoadScene("death");
 
+        // StartCoroutine("waitDeath");
     }
-    IEnumerator waitOne()
-    {
-        yield return new WaitForSeconds(oneSec);
-        SceneManager.LoadScene(2);
-    }
+
+
+
+    //IEnumerator waitDeath()
+    //{
+        //SceneManager.LoadScene("death");
+        //yield return new WaitForSeconds(waitTime);
+        //SceneManager.LoadScene("SampleScene");
+        //StartCoroutine(waitOne());
+
+    //}
+
+
+    //IEnumerator waitOne()
+    //{
+    //    yield return new WaitForSeconds(oneSec);
+    //    SceneManager.LoadScene(2);
+    //}
 }
 
