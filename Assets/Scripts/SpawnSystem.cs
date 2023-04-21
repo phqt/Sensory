@@ -8,6 +8,7 @@ public class SpawnSystem : MonoBehaviour
     public GameObject dudeTwo;
     public GameObject dudeThree;
     public GameObject dudeFour;
+    public GameObject dudeFive;
 
     private GameObject activeDude;
 
@@ -46,6 +47,11 @@ public class SpawnSystem : MonoBehaviour
             else if (activeDude == dudeFour)
             {
                 //activeDude = dudeOne;
+                activeDude = dudeFive;
+            }
+
+            else if (activeDude == dudeFive)
+            {
                 return;
             }
 
@@ -59,24 +65,35 @@ public class SpawnSystem : MonoBehaviour
             dudeTwo.SetActive(false);
             dudeThree.SetActive(false);
             dudeFour.SetActive(false);
+            dudeFive.SetActive(false);
         }
         else if (activeDude == dudeTwo)
         {
             dudeOne.SetActive(false);
             dudeThree.SetActive(false);
             dudeFour.SetActive(false);
+            dudeFive.SetActive(false);
         }
         else if (activeDude == dudeThree)
         {
             dudeOne.SetActive(false);
             dudeTwo.SetActive(false);
             dudeFour.SetActive(false);
+            dudeFive.SetActive(false);
         }
         else if (activeDude == dudeFour)
         {
             dudeOne.SetActive(false);
             dudeTwo.SetActive(false);
             dudeThree.SetActive(false);
+            dudeFive.SetActive(false);
+        }
+        else if (activeDude == dudeFive)
+        {
+            dudeOne.SetActive(false);
+            dudeTwo.SetActive(false);
+            dudeThree.SetActive(false);
+            dudeFour.SetActive(false);
         }
     }
 }
