@@ -51,6 +51,7 @@ public class AmmoBox : MonoBehaviour
             ammoSystem.AddAmmo(ammoAmount);
             collected = true;
             gameObject.SetActive(false);
+            filmSound.Play();
         }
     }
 

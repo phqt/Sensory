@@ -5,10 +5,9 @@ using UnityEngine.Audio;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audiMixer;
-
-    public void SetVolume (float volume)
+    public AudioMixer mixer;
+    public void SetLevel(float sliderValue)
     {
-        audiMixer.SetFloat("volume", volume);
+        mixer.SetFloat("MusicVol", Mathf.Log10(sliderValue) * 20);
     }
 }
