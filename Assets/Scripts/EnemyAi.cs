@@ -27,7 +27,7 @@ public class EnemyAi : MonoBehaviour
 
         else
         {
-            Enemy.GetComponent<Animator>().Play("Standing Torch Walk Forward");
+            Enemy.GetComponent<Animator>().Play("Sad Walk");
             EnemyAgent.SetDestination(EnemyGoal.transform.position);
         }
     }
